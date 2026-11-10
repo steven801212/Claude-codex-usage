@@ -1,6 +1,6 @@
 # token-panel：AI 用量面板
 
-一個 Docker 容器（FastAPI），顯示 **Claude 5 小時／每週** 與 **ChatGPT (Codex) 5 小時／每週** 的使用率與重置倒數，以 PWA 呈現（iPhone／Mac／Windows 都能安裝）。
+一個 Docker 容器（FastAPI），顯示 **Claude 5 小時／每週** 與 **ChatGPT (Codex) 5 小時／每週** 的剩餘額度與重置倒數（API 回傳的是使用率 used_percent），以 PWA 呈現（iPhone／Mac／Windows 都能安裝）。
 
 - 背景每 5 分鐘抓一次用量，快取在記憶體；`GET /api/usage` 回傳整理後的 JSON
 - `POST /api/refresh` 立即重抓（30 秒內只會真的抓一次）

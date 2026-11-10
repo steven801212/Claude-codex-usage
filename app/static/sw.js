@@ -1,5 +1,5 @@
 // App-shell cache; /api/* is always network-first with cached fallback.
-const CACHE = "token-panel-v1";
+const CACHE = "token-panel-v2";
 const SHELL = ["/", "/index.html", "/style.css", "/app.js", "/manifest.webmanifest",
   "/icons/icon-192.png", "/icons/icon-512.png", "/icons/apple-touch-icon.png", "/icons/icon.svg"];
 

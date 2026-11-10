@@ -45,11 +45,14 @@ function render() {
     for (const key of ["five_hour", "weekly"]) {
       const m = $(`.meter[data-window="${key}"]`, card);
       const w = p.windows && p.windows[key];
-      const pct = w && typeof w.used_percent === "number" ? w.used_percent : null;
-      $(".pct", m).textContent = pct === null ? "—" : `${Math.round(pct)}%`;
-      $(".bar i", m).style.width = pct === null ? "0" : `${Math.min(100, Math.max(0, pct))}%`;
-      m.classList.toggle("danger", pct !== null && pct > 95);
-      m.classList.toggle("warn", pct !== null && pct > 80 && pct <= 95);
+      const used = w && typeof w.used_percent === "number" ? Math.min(100, Math.max(0, w.used_percent)) : null;
+      const left = used === null ? null : 100 - used;
+      $(".pct", m).textContent = left === null ? "—" : `${Math.round(left)}%`;
+      $(".bar i", m).style.width = left === null ? "0" : `${left}%`;
+      m.title = used === null ? "" : `已使用 ${Math.round(used)}%`;
+      // colour thresholds are on usage: >80% used → orange, >95% used → red
+      m.classList.toggle("danger", used !== null && used > 95);
+      m.classList.toggle("warn", used !== null && used > 80 && used <= 95);
       m.dataset.reset = w && w.resets_at ? w.resets_at : "";
     }
   }
