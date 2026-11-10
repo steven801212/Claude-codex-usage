@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI 用量</title>
+<meta name="description" content="Claude 與 ChatGPT (Codex) 用量面板">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AI 用量">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="icon" type="image/svg+xml" href="/icons/icon.svg">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <h1>AI 用量</h1>
+  <button id="refresh" class="icon-btn" aria-label="立即更新" title="立即更新">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M17.65 6.35A7.95 7.95 0 0 0 12 4a8 8 0 1 0 7.75 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+  </button>
+</header>
+
+<main id="cards">
+  <section class="card" data-provider="claude">
+    <div class="card-head">
+      <h2>Claude</h2>
+      <span class="plan" hidden></span>
+      <span class="badge stale" hidden>資料過期</span>
+    </div>
+    <div class="meter" data-window="five_hour"><div class="label">5 小時</div><div class="pct">—</div><div class="bar"><i></i></div><div class="reset">—</div></div>
+    <div class="meter" data-window="weekly"><div class="label">每週</div><div class="pct">—</div><div class="bar"><i></i></div><div class="reset">—</div></div>
+    <p class="err" hidden></p>
+    <p class="updated"></p>
+  </section>
+
+  <section class="card" data-provider="codex">
+    <div class="card-head">
+      <h2>ChatGPT <small>Codex</small></h2>
+      <span class="plan" hidden></span>
+      <span class="badge stale" hidden>資料過期</span>
+    </div>
+    <div class="meter" data-window="five_hour"><div class="label">5 小時</div><div class="pct">—</div><div class="bar"><i></i></div><div class="reset">—</div></div>
+    <div class="meter" data-window="weekly"><div class="label">每週</div><div class="pct">—</div><div class="bar"><i></i></div><div class="reset">—</div></div>
+    <p class="err" hidden></p>
+    <p class="updated"></p>
+  </section>
+</main>
+
+<footer id="status" class="status"></footer>
+<script src="/app.js" defer></script>
+</body>
+</html>

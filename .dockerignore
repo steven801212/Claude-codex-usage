@@ -1,0 +1,7 @@
+data/
+.git/
+tests/
+__pycache__/
+*.pyc
+.pytest_cache/
+deploy.sh

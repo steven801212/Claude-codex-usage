@@ -1,0 +1,14 @@
+services:
+  token-panel:
+    build: .
+    image: token-panel:latest
+    container_name: token-panel
+    restart: unless-stopped
+    init: true
+    ports:
+      - "8787:8787"
+    volumes:
+      - ./data:/data
+    environment:
+      - POLL_SECONDS=300
+      - TZ=Asia/Taipei
